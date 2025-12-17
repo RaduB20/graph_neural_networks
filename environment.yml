@@ -1,0 +1,42 @@
+name: gnn_env
+channels:
+  - pytorch
+  - pyg
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  # Core Python & Jupyter
+  - python=3.9
+  - jupyterlab
+  - ipykernel
+  - notebook
+
+  # Deep Learning (PyTorch Ecosystem)
+  # Installs PyTorch with CUDA support for GPU acceleration (critical for GNNs)
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pytorch-cuda=11.8  # Adjust this version if you have a different GPU driver
+
+  # Graph Neural Networks (The most important)
+  - pyg  # PyTorch Geometric (Includes GCN, GAT, MessagePassing layers)
+
+  # Graph Data Handling & Visualization
+  - networkx  # Essential for manipulating graph structures and simple plots
+  - matplotlib
+  - seaborn   # Better looking statistical plots
+
+  # Standard Data Science Stack
+  - numpy
+  - pandas
+  - scikit-learn  # For metrics (accuracy, F1) and simple baselines (logistic regression)
+  - scipy
+  - tqdm  # Progress bars (very useful for long training loops)
+
+  # Optional but highly recommended for Hackathons
+  - pip
+  - pip:
+    - ogb  # Open Graph Benchmark (Standard datasets often used in hackathons)
+    - dgl  # Deep Graph Library (Alternative to PyG, just in case specific models need it)
+    - tensorboard # To track your training loss live
